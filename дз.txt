@@ -1,0 +1,72 @@
+--Абраимов А. Владеет крупной строительной компанией, которая занимается только
+--строительством ЖК. Спроектируйте базу данных, в которой будет вестись учёт
+--проданных/свободных квартир.
+--Требования к базе данных:
+--1. В базе данных должна быть информация о ЖК (адрес, дата постройки и т.д.).
+--2. В базе данных должна храниться информация о квартирах (квадратура, этаж,
+--кол-во комнат, стоимость и т.д.). Так же должна быть возможность
+--посмотреть общее количество квартир
+
+--3. Менеджеры должны иметь возможность просмотреть куплена квартира или
+--нет. Если да, то кем куплена, когда.
+--Другое:
+--- База данных должна быть нормализована.
+--- Создайте представление, которое позволит просмотреть количество купленных
+--квартир
+
+--- Создайте представление, которое позволит просмотреть количество НЕ
+--купленных квартир
+
+--- Создайте представление, для просмотра общего дохода с продаж квартир
+
+
+--create table employers(
+-- id int primary key identity not null, 
+-- name varchar(50) NOT NULL ,
+-- salary int not null,
+-- role_emp varchar(50) not null
+--)
+
+--create table house_complex (
+--	id int primary key identity not null,
+--	name varchar(50) not null, 
+--	adress varchar(150) not null, 
+--	date_built date not null ,
+--	flats int not null
+--)
+
+--create table apartment(
+--	id int primary key identity not null,
+--	name nvarchar(50) NOT NULL,
+--	isEmpty tinyint not null,
+--	floor int not null ,
+--	number int not null , 
+--	square_m_price int foreign key references square_m_price(id) not null,
+--	count_rooms int not null, 
+--	area float not null
+--)
+
+--alter table square_m_price
+--add id int primary key identity not null
+
+--create table history (
+--	id int primary key identity not null,
+--	id_apartment 
+--)
+
+--create table history(
+--	id int primary key identity not null,
+--	id_apart int foreign key references apartment(id) not null ,
+--	id_user int foreign key references users(id) not null, 
+--	id_sort int foreign key references employers(id) not null, 
+--	date_sale date not null ,
+--	income bigint not null
+--)
+
+ --create view count_sale_apartm as 
+ --select count(*) as count from history 
+ --create view count_of_unsaled as 
+ --select count(*) as count from apartment
+ --where isEmpty = 1 
+ --create view sum_income as 
+ --select sum(income) as summary from history 
